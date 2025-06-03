@@ -1,0 +1,23 @@
+/* Styles spécifiques pour la page login */
+
+.form-login input {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    border: 2px solid #6200ee; /* violet */
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-login input:focus {
+    border-color: #3700b3; /* violet plus foncé */
+    outline: none;
+}
+
+.form-login .btn-login {
+    width: 100%;
+    font-size: 1.1rem;
+    cursor: pointer;
+}

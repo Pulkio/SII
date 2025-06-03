@@ -1,0 +1,23 @@
+/* Styles spécifiques pour la page register */
+
+.form-register input {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    border: 2px solid #03dac6; /* turquoise */
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-register input:focus {
+    border-color: #018786; /* turquoise plus foncé */
+    outline: none;
+}
+
+.form-register .btn-register {
+    width: 100%;
+    font-size: 1.1rem;
+    cursor: pointer;
+}

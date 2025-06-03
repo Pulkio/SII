@@ -1,0 +1,124 @@
+/* ==========================================================
+   1. RESET CSS DE BASE
+   ========================================================== */
+
+/* On enlève les marges et paddings par défaut du navigateur
+   pour éviter les décalages inattendus. On définit aussi box-sizing
+   pour que le padding et border soient inclus dans les tailles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   2. STYLE GÉNÉRAL DU BODY (fond, centrage)
+   ========================================================== */
+body {
+    font-family: 'Inter', sans-serif; /* Typo moderne et lisible */
+    background: linear-gradient(135deg, #e0f7fa, #e1bee7); /* Dégradé violet/bleu clair moderne */
+    
+    min-height: 100vh;       /* Prend toute la hauteur visible de la page */
+    display: flex;           /* Active Flexbox pour centrer le contenu */
+    align-items: center;     /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    padding: 1rem;           /* Un peu de marge autour sur petits écrans */
+}
+
+
+/* ==========================================================
+   3. CONTAINER PRINCIPAL (carte blanche au centre)
+   ========================================================== */
+.container {
+    width: 100%;               /* Prend toute la largeur disponible */
+    max-width: 500px;          /* Ne dépasse pas 500px pour rester lisible */
+    min-height: 40vh;          /* Hauteur minimale pour bien aérer le contenu */
+    background-color: #ffffff; /* Fond blanc pour contraster avec le background */
+    border-radius: 2rem;       /* Coins très arrondis pour un style doux */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Ombre douce autour de la carte */
+    padding: 2rem;             /* Espace intérieur du bloc */
+    text-align: center;        /* Centre le texte à l’intérieur */
+}
+
+
+/* ==========================================================
+   4. TITRES ET TEXTES
+   ========================================================== */
+.box h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Taille adaptative selon l’écran */
+    margin-bottom: 0.5rem;                 /* Espace après le titre */
+    color: #333;                           /* Gris foncé pour bonne lisibilité */
+}
+
+.box p {
+    color: #666;          /* Gris clair pour sous-titre */
+    margin-bottom: 2rem;  /* Espace après le paragraphe */
+    font-size: 1rem;      /* Taille de texte standard */
+}
+
+
+/* ==========================================================
+   5. BOUTONS (style général et couleurs)
+   ========================================================== */
+.button-group {
+    display: flex;            /* Utilisation de Flexbox pour organiser les boutons */
+    flex-direction: column;  /* Empile les boutons verticalement par défaut */
+    gap: 1rem;                /* Espace vertical entre les boutons */
+}
+
+.btn {
+    display: inline-block;           /* Permet padding + comportement de bouton */
+    padding: 1rem;                   /* Espace intérieur confortable */
+    border: none;                    /* Pas de bordure par défaut */
+    border-radius: 1.5rem;           /* Coins arrondis */
+    text-decoration: none;           /* Enlève soulignement si bouton est un lien */
+    font-weight: 600;                /* Texte semi-gras pour lisibilité */
+    font-size: 1rem;                 /* Taille standard adaptable */
+    transition: background 0.3s ease, transform 0.2s ease; /* Animation fluide au survol */
+}
+
+/* Couleur violette pour le bouton "Se connecter" */
+.btn-login {
+    background-color: #6200ee;
+    color: white;
+}
+
+/* Couleur turquoise pour le bouton "Créer un compte" */
+.btn-register {
+    background-color: #03dac6;
+    color: black;
+}
+
+/* Animation lors du survol de n'importe quel bouton */
+.btn:hover {
+    transform: translateY(-2px);  /* Soulèvement subtil */
+    filter: brightness(1.05);     /* Légère augmentation de la luminosité */
+}
+
+
+/* ==========================================================
+   6. RESPONSIVE DESIGN - MOBILE (écran < 500px)
+   ========================================================== */
+@media screen and (max-width: 500px) {
+    .container {
+        padding: 1.5rem; /* Réduit les marges internes pour petits écrans */
+        width: 90%;      /* Ne colle pas aux bords du mobile */
+    }
+
+    .box h1 {
+        font-size: 1.75rem; /* Réduit un peu la taille du titre */
+    }
+
+}
+
+
+/* ==========================================================
+   7. RESPONSIVE DESIGN - GRAND ÉCRAN (> 1000px)
+   ========================================================== */
+@media screen and (min-width: 1000px) {
+
+    .btn {
+        min-width: 150px;          /* Largeur minimale pour qu’ils soient équilibrés */
+    }
+}
