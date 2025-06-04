@@ -1,0 +1,26 @@
+/* /public/assets/css/form.css */
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.form-box select,
+.form-box input,
+.form-box button {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.logout-link {
+    display: inline-block;
+    margin-top: 1.5rem; /* ← ajoute de l’espace au-dessus */
+    text-decoration: underline;
+    font-size: 1rem;
+    color: #555;
+}
