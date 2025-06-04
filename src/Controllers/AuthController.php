@@ -20,12 +20,13 @@ class AuthController {
     // Traitement du formulaire d'inscription
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $_POST['username'] ?? '';
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
 
-            // Validation basique 
+            // Validation basique
             if (filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($password) >= 6) {
-                $created = $this->userModel->create($email, $password);
+                $created = $this->userModel->create($username, $email, $password);
                 if ($created) {
                     // Création OK, redirection vers login ou auto-login
                     header('Location: /login?registered=1');
@@ -66,7 +67,7 @@ class AuthController {
     }
 
     public function logout() {
-    // Vérifie si une session n'est pas déjà démarrée avant de la démarrer
+        // Vérifie si une session n'est pas déjà démarrée avant de la démarrer
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }

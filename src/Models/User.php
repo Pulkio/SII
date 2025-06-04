@@ -11,11 +11,12 @@ class User {
 
     /**
      * Crée un nouvel utilisateur dans la base.
+     * @param string $username Pseudo de l'utilisateur
      * @param string $email Email de l'utilisateur
      * @param string $password Mot de passe en clair
      * @return bool true si création OK, false si email déjà utilisé
      */
-    public function create($email, $password) {
+    public function create($username, $email, $password) {
         // 1. Vérifier si l'email existe déjà
         $stmt = $this->pdo->prepare("SELECT id FROM users WHERE email = ?");
         $stmt->execute([$email]);
@@ -28,8 +29,8 @@ class User {
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
         // 3. Insérer le nouvel utilisateur dans la base
-        $stmt = $this->pdo->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
-        return $stmt->execute([$email, $hash]);
+        $stmt = $this->pdo->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+        return $stmt->execute([$username, $email, $hash]);
     }
 
     /**
@@ -54,10 +55,14 @@ class User {
         return false;
     }
 
+    /**
+     * Trouve un utilisateur par son ID.
+     * @param int $id ID de l'utilisateur
+     * @return array|false Les informations de l'utilisateur si trouvé, sinon false
+     */
     public function findById($id) {
-        $stmt = $this->pdo->prepare("SELECT id, email FROM users WHERE id = ?");
+        $stmt = $this->pdo->prepare("SELECT id, username, email FROM users WHERE id = ?");
         $stmt->execute([$id]);
         return $stmt->fetch();
     }
-
 }

@@ -87,8 +87,11 @@ $router->post('/meal/submit', [$mealController, 'submit']);
 $router->get('/sport', [$sportController, 'showForm']);
 $router->post('/sport/submit', [$sportController, 'submit']);
 
-// (optionnel) Afficher les repas précédents
-// $router->get('/meal/list', [$mealController, 'list']);
+
+// Route pour les statistiques
+$router->get('/stats', function() {
+    require __DIR__ . '/../src/Views/stats.php';
+});
 
 // ==========================
 // DÉCLENCHEMENT DU ROUTEUR
