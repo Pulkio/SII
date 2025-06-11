@@ -16,14 +16,11 @@ session_start();
 
         <form action="/poop/submit" method="POST" class="form-box">
             <select id="form" name="form" required>
-                <option value="">-- Choisissez --</option>
-                <option value="1">1 - Boules dures (type 1)</option>
-                <option value="2">2 - Sausage grumeleux</option>
-                <option value="3">3 - Saucisse craquelée</option>
-                <option value="4">4 - Lisse, en forme de saucisse</option>
-                <option value="5">5 - Petits morceaux mous</option>
-                <option value="6">6 - Bouillie</option>
-                <option value="7">7 - Liquide (diarrhée)</option>
+                <option value="">Choisissez une option</option>
+                <option value="1">Dur</option>
+                <option value="2">Normal</option>
+                <option value="3">Mou</option>
+                <option value="4">Liquide</option>
             </select>
 
             <button type="submit" class="btn btn-login">Valider</button>

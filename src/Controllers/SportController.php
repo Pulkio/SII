@@ -27,9 +27,10 @@ class SportController {
         $intensity = $_POST['intensity'] ?? null;
         $pain = $_POST['pain'] ?? null;
         $limited = $_POST['limited_by_belly'] ?? null;
+        $sport_type = $_POST['sport_type'] ?? null;
 
-        if ($duration && $intensity && $pain !== null && $limited !== null) {
-            $this->model->create($userId, $duration, $intensity, $pain, $limited);
+        if ($duration && $intensity && $pain !== null && $limited !== null && $sport_type != null) {
+            $this->model->create($userId, $duration, $intensity, $pain, $limited, $sport_type);
         }
 
         header('Location: /dashboard');

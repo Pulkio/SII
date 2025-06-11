@@ -23,6 +23,7 @@ use App\Controllers\PoopController;
 use App\Controllers\PainController;
 use App\Controllers\MealController; 
 use App\Controllers\SportController;
+use App\Controllers\StatController;
 
 // ==========================
 // INSTANCIATION
@@ -38,6 +39,7 @@ $poopController = new PoopController($pdo);
 $painController = new PainController($pdo);
 $mealController = new MealController($pdo); 
 $sportController = new SportController($pdo);
+$statController = new StatController($pdo);
 
 // ==========================
 // ROUTES PUBLIQUES
@@ -88,10 +90,9 @@ $router->get('/sport', [$sportController, 'showForm']);
 $router->post('/sport/submit', [$sportController, 'submit']);
 
 
-// Route pour les statistiques
-$router->get('/stats', function() {
-    require __DIR__ . '/../src/Views/stats.php';
-});
+
+$router->get('/stats', fn() => $statController->show());
+
 
 // ==========================
 // DÉCLENCHEMENT DU ROUTEUR
@@ -99,3 +100,5 @@ $router->get('/stats', function() {
 
 // Analyse l'URL actuelle et exécute la fonction associée
 $router->handle($_SERVER['REQUEST_URI']);
+
+

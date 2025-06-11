@@ -20,6 +20,19 @@ if (!isset($_SESSION['user_id'])) {
 
         <form action="/sport/submit" method="POST" class="form-box">
 
+
+            <!-- Type de sport -->
+            <label for="sport_type">Type de sport</label>
+            <select name="sport_type" id="sport_type" required>
+                <option value="">-- Sélectionner --</option>
+                <option value="course">Course à pied</option>
+                <option value="musculation">Musculation</option>
+                <option value="natation">Natation</option>
+                <option value="cyclisme">Cyclisme</option>
+                <option value="randonnee">Randonnée</option>
+                <option value="autre">Autre</option>
+            </select>
+
             <!-- Durée de l'effort -->
             <label for="duration">Durée de l'effort</label>
             <select name="duration" id="duration" required>

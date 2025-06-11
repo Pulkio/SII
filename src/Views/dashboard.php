@@ -6,8 +6,6 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Assurez-vous que $user est défini et contient le nom de l'utilisateur
-$user = $this->userModel->findById($_SESSION['user_id']);
 ?>
 
 <!DOCTYPE html>

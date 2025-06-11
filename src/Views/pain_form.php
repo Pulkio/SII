@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['user_id'])) {
-    header('Location: /login');
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,7 +11,6 @@ if (!isset($_SESSION['user_id'])) {
         <h1>Ajouter un symptôme 🩺</h1>
 
         <form action="/pain/submit" method="post" class="form-box">
-
             <!-- Type de symptôme -->
             <label for="symptom_type">Quel est le symptôme ?</label>
             <select name="symptom_type" id="symptom_type" required>
@@ -43,12 +34,25 @@ if (!isset($_SESSION['user_id'])) {
             </select>
 
             <!-- Intensité -->
-            <label for="severity">Quelle est l’intensité ?</label>
+            <label for="severity">Quelle est l’intensité de la douleur ?</label>
             <select name="severity" id="severity" required>
                 <option value="">-- Sélectionner --</option>
-                <option value="faible">Faible</option>
-                <option value="moderee">Modérée</option>
-                <option value="forte">Forte</option>
+                <option value="1">Niveau 1 - Très faible</option>
+                <option value="2">Niveau 2 - Faible</option>
+                <option value="3">Niveau 3 - Modérée</option>
+                <option value="4">Niveau 4 - Forte</option>
+                <option value="5">Niveau 5 - Très forte</option>
+            </select>
+
+            <!-- Niveau de stress -->
+            <label for="stress_level">Quel est votre niveau de stress ?</label>
+            <select name="stress_level" id="stress_level" required>
+                <option value="">-- Sélectionner --</option>
+                <option value="1">Niveau 1 - Très faible</option>
+                <option value="2">Niveau 2 - Faible</option>
+                <option value="3">Niveau 3 - Modéré</option>
+                <option value="4">Niveau 4 - Élevé</option>
+                <option value="5">Niveau 5 - Très élevé</option>
             </select>
 
             <button type="submit" class="btn btn-login">Valider</button>
