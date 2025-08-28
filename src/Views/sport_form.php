@@ -19,6 +19,9 @@ if (!isset($_SESSION['user_id'])) {
         <h1>Ajouter une séance de sport 🏋️</h1>
 
         <form action="/sport/submit" method="POST" class="form-box">
+            <!-- Date de la séance -->
+            <label for="sport_date">Date de la séance</label>
+            <input type="date" name="sport_date" id="sport_date" value="<?php echo date('Y-m-d'); ?>" required>
 
 
             <!-- Type de sport -->

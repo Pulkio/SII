@@ -9,14 +9,15 @@ class Pain {
     }
 
     public function create($userId, $data) {
-        $stmt = $this->pdo->prepare("INSERT INTO pains (user_id, symptom_type, location, severity, stress_level) 
-                                     VALUES (?, ?, ?, ?, ?)");
+        $stmt = $this->pdo->prepare("INSERT INTO pains (user_id, symptom_type, location, severity, stress_level, pain_date) 
+                                     VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->execute([
             $userId,
             $data['symptom_type'],
             $data['location'],
             $data['severity'],
-            $data['stress_level']
+            $data['stress_level'],
+            $data['pain_date'] ?? date('Y-m-d')
         ]);
     }
 

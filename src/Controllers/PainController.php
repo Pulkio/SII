@@ -28,7 +28,23 @@ class PainController {
         }
 
         require __DIR__ . '/../../config/db.php';
-        $this->painModel->create($_SESSION['user_id'], $_POST);
+        $userId = $_SESSION['user_id'];
+        $painDate = $_POST['pain_date'] ?? date('Y-m-d');
+        $symptoms = $_POST['symptom_type'] ?? [];
+        $location = $_POST['location'] ?? null;
+        $severity = $_POST['severity'] ?? null;
+        $stress = $_POST['stress_level'] ?? null;
+        if (!empty($symptoms) && $location && $severity && $stress) {
+            foreach ($symptoms as $symptom) {
+                $this->painModel->create($userId, [
+                    'symptom_type' => $symptom,
+                    'location' => $location,
+                    'severity' => $severity,
+                    'stress_level' => $stress,
+                    'pain_date' => $painDate
+                ]);
+            }
+        }
         header('Location: /dashboard');
         exit;
     }

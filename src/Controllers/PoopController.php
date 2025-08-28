@@ -27,11 +27,16 @@ class PoopController {
             exit;
         }
 
-        // Utilise le $pdo injecté
-        $poop = new Poop($this->pdo);
-        $poop->create($_SESSION['user_id'], $_POST['form']);
+    // Utilise le $pdo injecté
+    $poop = new Poop($this->pdo);
+    $userId = $_SESSION['user_id'];
+    $poopDate = $_POST['poop_date'] ?? date('Y-m-d');
+    $trend = $_POST['trend'] ?? 'normal';
+    $frequency = $_POST['frequency'] ?? '0-1';
+    $form = $_POST['form'] ?? null;
+    $poop->create($userId, $poopDate, $trend, $frequency, $form);
 
-        header('Location: /dashboard');
-        exit;
+    header('Location: /dashboard');
+    exit;
     }
 }

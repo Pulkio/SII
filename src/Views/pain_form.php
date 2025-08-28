@@ -10,18 +10,22 @@
     <div class="container">
         <h1>Ajouter un symptôme 🩺</h1>
 
+
         <form action="/pain/submit" method="post" class="form-box">
-            <!-- Type de symptôme -->
-            <label for="symptom_type">Quel est le symptôme ?</label>
-            <select name="symptom_type" id="symptom_type" required>
-                <option value="">-- Sélectionner --</option>
-                <option value="ballonnements">Ballonnements</option>
-                <option value="gaz">Gaz</option>
-                <option value="brulure">Brûlure</option>
-                <option value="crampe">Crampe</option>
-                <option value="douleur sourde">Douleur diffuse</option>
-                <option value="autre">Autre</option>
-            </select>
+            <!-- Date du symptôme -->
+            <label for="pain_date">Date :</label>
+            <input type="date" name="pain_date" id="pain_date" value="<?php echo date('Y-m-d'); ?>" required>
+
+            <!-- Type de symptôme (cases à cocher) -->
+            <label>Quels sont les symptômes ?</label>
+            <div class="checkbox-group" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                <label style="display: flex; align-items: center;"><input type="checkbox" name="symptom_type[]" value="ballonnements" style="margin-right: 6px;">Ballonnements</label>
+                <label style="display: flex; align-items: center;"><input type="checkbox" name="symptom_type[]" value="gaz" style="margin-right: 6px;">Gaz</label>
+                <label style="display: flex; align-items: center;"><input type="checkbox" name="symptom_type[]" value="brulure" style="margin-right: 6px;">Brûlure</label>
+                <label style="display: flex; align-items: center;"><input type="checkbox" name="symptom_type[]" value="crampe" style="margin-right: 6px;">Crampe</label>
+                <label style="display: flex; align-items: center;"><input type="checkbox" name="symptom_type[]" value="douleur sourde" style="margin-right: 6px;">Douleur diffuse</label>
+                <label style="display: flex; align-items: center;"><input type="checkbox" name="symptom_type[]" value="autre" style="margin-right: 6px;">Autre</label>
+            </div>
 
             <!-- Localisation -->
             <label for="location">Où ressentez-vous le symptôme ?</label>
