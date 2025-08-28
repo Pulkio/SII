@@ -12,10 +12,10 @@ class Meal {
     }
 
     // Fonction pour enregistrer un repas
-    public function create($userId, $hungerBefore, $mealSize, $foods) {
-        // 1. Insertion du repas dans la table meals
-        $stmt = $this->pdo->prepare("INSERT INTO meals (user_id, hunger_before, meal_size) VALUES (?, ?, ?)");
-        $stmt->execute([$userId, $hungerBefore, $mealSize]);
+    public function create($userId, $hungerBefore, $mealSize, $foods, $mealDate, $mealType) {
+        // 1. Insertion du repas dans la table meals (ajout date et type)
+        $stmt = $this->pdo->prepare("INSERT INTO meals (user_id, hunger_before, meal_size, meal_date, meal_type) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute([$userId, $hungerBefore, $mealSize, $mealDate, $mealType]);
         $mealId = $this->pdo->lastInsertId(); // Récupère l'ID du repas créé
 
         // 2. Pour chaque aliment, l’ajouter à la table foods s’il n’existe pas, puis le lier au repas

@@ -20,6 +20,19 @@ if (!isset($_SESSION['user_id'])) {
         <h1>Ajouter un repas 🍽️</h1>
 
         <form action="/meal/submit" method="POST" class="form-box">
+            <!-- Date du repas -->
+            <label for="meal_date">Date du repas :</label>
+            <input type="date" name="meal_date" id="meal_date" value="<?php echo date('Y-m-d'); ?>" required>
+
+            <!-- Type de repas -->
+            <label for="meal_type">Type de repas :</label>
+            <select name="meal_type" id="meal_type" required>
+                <option value="matin">Matin</option>
+                <option value="10h">10h</option>
+                <option value="midi" selected>Midi</option>
+                <option value="gouter">Goûter</option>
+                <option value="soir">Soir</option>
+            </select>
             <!-- Faim -->
             <label for="hunger_before">Aviez-vous faim ?</label>
             <select name="hunger_before" id="hunger_before" required>

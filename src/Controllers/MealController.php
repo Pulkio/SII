@@ -29,15 +29,18 @@ class MealController {
             exit;
         }
 
+
         // Récupération des données du formulaire
         $userId = $_SESSION['user_id'];
         $hungerBefore = $_POST['hunger_before'] ?? null;
         $mealSize = $_POST['meal_size'] ?? null;
         $foods = explode(',', $_POST['selected_foods'] ?? '');
+        $mealDate = $_POST['meal_date'] ?? date('Y-m-d');
+        $mealType = $_POST['meal_type'] ?? 'midi';
 
         // Vérification simple
-        if ($hungerBefore !== null && $mealSize && !empty($foods)) {
-            $this->mealModel->create($userId, $hungerBefore, $mealSize, $foods);
+        if ($hungerBefore !== null && $mealSize && !empty($foods) && $mealDate && $mealType) {
+            $this->mealModel->create($userId, $hungerBefore, $mealSize, $foods, $mealDate, $mealType);
         }
 
         // Redirection

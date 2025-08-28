@@ -1,10 +1,10 @@
 <?php
 // db.php : établit la connexion PDO à la base colon_tracker en local
 
-$host = 'localhost';          // Serveur MySQL local
-$dbname = 'colon_tracker';    // Nom de la base de données
-$user = 'root';               // Utilisateur MySQL local
-$pass = '14162124';           // Mot de passe MySQL local 
+$host = 'localhost'; // Hostinger : généralement 'localhost' pour MySQL
+$dbname = 'u214587418_sii'; // Nom de la base Hostinger
+$user = 'u214587418_sii_user'; // Utilisateur Hostinger
+$pass = 'Colon_sii8+'; // Mot de passe Hostinger
 
 $options = [
     // Active la gestion des erreurs via des exceptions PDO
